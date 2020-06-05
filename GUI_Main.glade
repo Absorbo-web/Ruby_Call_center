@@ -3,19 +3,51 @@
   <!-- interface-requires gtk+ 3.0 -->
   <object class="GtkListStore" id="liststore1">
     <columns>
-      <!-- column-name gchararray1 -->
+      <!-- column-name Фирма -->
       <column type="gchararray"/>
-      <!-- column-name gchararray2 -->
+      <!-- column-name Дата звонка -->
+      <column type="gchararray"/>
+      <!-- column-name Время звонка -->
+      <column type="gchararray"/>
+      <!-- column-name Номер -->
+      <column type="gchararray"/>
+      <!-- column-name Длительность -->
+      <column type="gchararray"/>
+      <!-- column-name id Оператора -->
       <column type="gchararray"/>
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes" context="redfv" comments="2134edqw">sdffrcvdes</col>
-        <col id="1" translatable="yes" context="21eqwdsa" comments="qewds">12eqwda</col>
+        <col id="0" translatable="yes" context="redfv" comments="2134edqw">Алкоголь.рф</col>
+        <col id="1" translatable="yes" context="21eqwdsa" comments="qewds">28.05</col>
+        <col id="2" translatable="yes">7:14</col>
+        <col id="3" translatable="yes">88005556565</col>
+        <col id="4" translatable="yes">11:04</col>
+        <col id="5" translatable="yes">Елена</col>
       </row>
       <row>
-        <col id="0" translatable="yes" context="adsv" comments="avsd">adsfvg</col>
-        <col id="1" translatable="yes" context="dvfas" comments="asdv">asdv</col>
+        <col id="0" translatable="yes" context="adsv" comments="avsd">Домашние пельмешки</col>
+        <col id="1" translatable="yes" context="dvfas" comments="asdv">28.05</col>
+        <col id="2" translatable="yes">0:33</col>
+        <col id="3" translatable="yes">89184574545</col>
+        <col id="4" translatable="yes">12:35</col>
+        <col id="5" translatable="yes">Екатерина</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Доставка хомячков</col>
+        <col id="1" translatable="yes">23.05</col>
+        <col id="2" translatable="yes">5:44</col>
+        <col id="3" translatable="yes">89283426789</col>
+        <col id="4" translatable="yes">18:33</col>
+        <col id="5" translatable="yes">Елена</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Алкоголь.рф</col>
+        <col id="1" translatable="yes">29.05</col>
+        <col id="2" translatable="yes">10:30</col>
+        <col id="3" translatable="yes">88005556565</col>
+        <col id="4" translatable="yes">21:20</col>
+        <col id="5" translatable="yes">Елена</col>
       </row>
     </data>
   </object>
@@ -38,9 +70,9 @@
                 <property name="entry_text_column">0</property>
                 <property name="id_column">1</property>
                 <items>
-                  <item translatable="yes">Firm1</item>
-                  <item translatable="yes">Firm2</item>
-                  <item translatable="yes">Firm3</item>
+                  <item translatable="yes">Алкоголь.рф</item>
+                  <item translatable="yes">Домашние пельмешки</item>
+                  <item translatable="yes">Доставка хомячков</item>
                 </items>
               </object>
               <packing>
@@ -55,7 +87,7 @@
                 <property name="can_focus">True</property>
                 <property name="year">2020</property>
                 <property name="month">4</property>
-                <property name="day">15</property>
+                <property name="day">1</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -69,7 +101,7 @@
                 <property name="can_focus">True</property>
                 <property name="year">2020</property>
                 <property name="month">4</property>
-                <property name="day">15</property>
+                <property name="day">31</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -79,7 +111,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button1">
-                <property name="label" translatable="yes">button</property>
+                <property name="label" translatable="yes">Показать звонки</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -98,6 +130,7 @@
         </child>
         <child>
           <object class="GtkTreeView" id="treeview1">
+            <property name="width_request">1</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="model">liststore1</property>
@@ -115,8 +148,29 @@
                     <property name="placeholder_text">куку епта</property>
                   </object>
                   <attributes>
-                    <attribute name="foreground-gdk">1</attribute>
                     <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="treeviewcolumn5">
+                <property name="title" translatable="yes">Дата звонка</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext5"/>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="treeviewcolumn3">
+                <property name="title" translatable="yes">Время звонка</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                  <attributes>
+                    <attribute name="text">2</attribute>
                   </attributes>
                 </child>
               </object>
@@ -129,7 +183,29 @@
                     <property name="placeholder_text">ку куепта 2</property>
                   </object>
                   <attributes>
-                    <attribute name="text">0</attribute>
+                    <attribute name="text">3</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="treeviewcolumn4">
+                <property name="title" translatable="yes">Длительность</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext4"/>
+                  <attributes>
+                    <attribute name="text">4</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn" id="treeviewcolumn6">
+                <property name="title" translatable="yes">id Оператора</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext6"/>
+                  <attributes>
+                    <attribute name="text">5</attribute>
                   </attributes>
                 </child>
               </object>
@@ -137,7 +213,7 @@
           </object>
           <packing>
             <property name="resize">True</property>
-            <property name="shrink">True</property>
+            <property name="shrink">False</property>
           </packing>
         </child>
       </object>

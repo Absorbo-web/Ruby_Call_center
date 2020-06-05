@@ -76,3 +76,5 @@ class Controller
 end
 
 OOOJopa = Controller.new()
+
+# @client = Mysql2::Client.new(:username => 'root', :password => 'password', :host => '127.0.0.1', :database => 'testdb')
